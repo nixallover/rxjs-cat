@@ -3,8 +3,6 @@
 
 $color-main-bg: #8d898e;
 $height-cat: 100px;
-$height-marble: 40px;
-$time-floating: 10s;
 
 body {
   background-color: $color-main-bg;
@@ -13,8 +11,7 @@ body {
 .stage {
   background-color: darken($color-main-bg, 5);
   height: 230px;
-  padding-bottom: 3rem;
-  padding-top: 3rem;
+  padding: 3rem;
 }
 
 .stage-inner {
@@ -24,22 +21,12 @@ body {
   min-height: $height-cat;
 }
 
-.marble {
-  animation: float-right $time-floating 1 forwards linear;
-  background-color: #efebe6;
-  border-radius: 50%;
-  display: block;
-  height: $height-marble;
-  position: absolute;
-  width: $height-marble;
-}
-
-.cat {
-  // border: dotted 1px darken($color-main-bg, 10);
-  animation: float-right $time-floating 1 forwards linear;
-  background: no-repeat center/$height-cat url('assets/rxjs-cat.png');
-  display: block;
-  height: $height-cat;
-  position: absolute;
-  width: $height-cat;
-}
+// .cat {
+//   // border: dotted 1px darken($color-main-bg, 10);
+//   animation: float-right $time-floating 1 forwards linear;
+//   background: no-repeat center/$height-cat url('assets/rxjs-cat.png');
+//   display: block;
+//   height: $height-cat;
+//   position: absolute;
+//   width: $height-cat;
+// }

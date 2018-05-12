@@ -1,0 +1,30 @@
+@import '../../../node_modules/bootstrap/scss/bootstrap';
+@import '../../sass/animations';
+
+$time-floating: 10s;
+$size-marble: 40px;
+
+$color-1: #efebe6;
+$color-2: #e9bc40;
+$color-3: #39babe;
+$color-4: #16739e;
+$color-5: #0b5b9c;
+
+.marble {
+  animation: float-right $time-floating 1 forwards linear;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  height: $size-marble;
+  width: $size-marble;
+
+  // default color
+  background-color: $color-1;
+
+  &.marble-color-1 { background-color: $color-1; }
+  &.marble-color-2 { background-color: $color-2; }
+  &.marble-color-3 { background-color: $color-3; }
+  &.marble-color-4 { background-color: $color-4; }
+  &.marble-color-5 { background-color: $color-5; }
+
+}

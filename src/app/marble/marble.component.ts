@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import * as _ from 'lodash';
 
@@ -8,12 +8,12 @@ import * as _ from 'lodash';
   styleUrls: ['./marble.component.scss']
 })
 export class MarbleComponent implements OnInit {
-  colorNum: number;
+  @Input() colorNum: number;
 
   constructor() { }
 
   ngOnInit() {
-    this.colorNum = _.random(1, 5, false);
+    // this.colorNum = _.random(1, 5, false);
   }
 
 }

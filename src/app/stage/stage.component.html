@@ -1,0 +1,9 @@
+<h2>{{title}}</h2>
+<div class="card mb-3">
+  <div class="card-body">
+    <samp>{{marbles | json}}</samp>
+  </div>
+</div>
+<div class="stage-inner">
+  <app-marble *ngFor="let marble of marbles" [colorNum]="marble">{{marble}}</app-marble>
+</div>

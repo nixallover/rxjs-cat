@@ -6,19 +6,22 @@ $height-cat: 100px;
 
 body {
   background-color: $color-main-bg;
-}
-
-.stage {
-  background-color: darken($color-main-bg, 5);
-  height: 230px;
   padding: 3rem;
 }
 
+// .stage {
+//   background-color: darken($color-main-bg, 5);
+//   padding: 3rem;
+// }
+
 .stage-inner {
+  border: dotted 1px #fff;
   position: relative;
   width: 100%;
   overflow: hidden;
-  min-height: $height-cat;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  min-height: 100px;
 }
 
 // .cat {

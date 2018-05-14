@@ -1,14 +1,11 @@
 <div class="container">
   <div class="my-4">
-    <button (click)="addMarble()" class="btn btn-primary">
+    <!-- <button class="btn btn-primary">
       Generate
-    </button>
+    </button> -->
   </div>
 </div>
 
-<div class="stage">
-  <div class="stage-inner">
-    <app-marble *ngFor="let marble of marbles"></app-marble>
-    <!-- <div *ngFor="let marble of marbles" class="cat"></div> -->
-  </div>
-</div>
+<app-stage title="Normal" [marbles]="marblesNormal"></app-stage>
+
+<app-stage title="Filter: odd" [marbles]="marbles"></app-stage>

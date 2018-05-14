@@ -4,11 +4,11 @@
 $time-floating: 10s;
 $size-marble: 40px;
 
-$color-1: #c4c2c0;
-$color-2: #e9bc40;
-$color-3: #39babe;
-$color-4: #1d7ba7;
-$color-5: #0b5b9c;
+// $color-1: #c4c2c0;
+// $color-2: #e9bc40;
+// $color-3: #39babe;
+// $color-4: #1d7ba7;
+// $color-5: #0b5b9c;
 
 .marble {
   animation: float-right $time-floating 1 forwards linear;
@@ -19,17 +19,17 @@ $color-5: #0b5b9c;
   width: $size-marble;
 
   font-size: 125%;
-  color: #f0ece8;
+  color: #eeecea;
   padding: .35rem;
   text-align: center;
 
   // default color
-  background-color: $color-1;
+  background-color: #856c8f;
 
-  &.marble-color-1 { background-color: $color-1; }
-  &.marble-color-2 { background-color: $color-2; }
-  &.marble-color-3 { background-color: $color-3; }
-  &.marble-color-4 { background-color: $color-4; }
-  &.marble-color-5 { background-color: $color-5; }
+  // &.marble-color-1 { background-color: $color-1; }
+  // &.marble-color-2 { background-color: $color-2; }
+  // &.marble-color-3 { background-color: $color-3; }
+  // &.marble-color-4 { background-color: $color-4; }
+  // &.marble-color-5 { background-color: $color-5; }
 
 }

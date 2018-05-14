@@ -1,25 +1,32 @@
-@import '../../node_modules/bootstrap/scss/bootstrap';
+@import 'bootstrap-custom';
+
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+// bootstrap - required
+// @import "node_modules/bootstrap/scss/functions";
+// @import "node_modules/bootstrap/scss/variables";
+// @import "node_modules/bootstrap/scss/mixins";
+
+// bootstrap - optional
+// @import "node_modules/bootstrap/scss/reboot";
+// @import "node_modules/bootstrap/scss/type";
+// @import "node_modules/bootstrap/scss/images";
+// @import "node_modules/bootstrap/scss/code";
+// @import "node_modules/bootstrap/scss/grid";
+
 @import 'animations';
 
-$color-main-bg: #8d898e;
-$height-cat: 100px;
-
-body {
-  background-color: $color-main-bg;
-  padding: 3rem;
+h1 {
+  color: #fff;
 }
 
-// .stage {
-//   background-color: darken($color-main-bg, 5);
-//   padding: 3rem;
-// }
-
 .stage-inner {
-  border: dotted 1px #fff;
+  //border: dotted 1px #fff;
+  background-color: rgba(255, 255, 255, .2);
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 1.5rem;
+  padding: 1.6rem;
   margin-bottom: 1.5rem;
   min-height: 100px;
 }

@@ -1,11 +1,16 @@
-<div class="container">
-  <div class="my-4">
-    <!-- <button class="btn btn-primary">
-      Generate
-    </button> -->
+<section class="my-4">
+  <div class="container">
+    <h1>RXJS operators in action</h1>
+    <button *ngIf="!isPlaying" (click)="play()" class="btn btn-primary">Play</button>
+    <button *ngIf="isPlaying" (click)="stop()" class="btn btn-primary">Stop</button>
   </div>
-</div>
+  <hr>
+</section>
 
-<app-stage title="Normal" [marbles]="marblesNormal"></app-stage>
+<app-stage *ngFor="let demo of marbleDemos" [demo]="demo"></app-stage>
 
-<app-stage title="Filter: odd" [marbles]="marbles"></app-stage>
+<footer>
+  <div class="container mb-5">
+    Demo of some RXJS operators in action
+  </div>
+</footer>

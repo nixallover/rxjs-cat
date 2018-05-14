@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MarbleDemo } from '../marble-demo.model';
 
 @Component({
   selector: 'app-stage',
@@ -6,8 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./stage.component.css']
 })
 export class StageComponent implements OnInit {
-  @Input() title: string;
-  @Input() marbles: any[];
+  @Input() demo: MarbleDemo;
 
   constructor() { }
 

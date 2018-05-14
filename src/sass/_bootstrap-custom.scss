@@ -1,0 +1,19 @@
+$icy-grape: #d0cbd2;
+$lilac: #856c8f;
+$electric-lilac: #804f94;
+$eggplant: #593e61;
+
+$theme-colors: (
+  "primary": $electric-lilac,
+  "secondary": $lilac
+);
+
+$body-bg: $icy-grape;
+$body-color: $eggplant;
+
+$font-family-sans-serif: 'Roboto Slab', serif;
+$headings-color: $lilac;
+
+$border-radius: .5rem;
+$border-radius-lg: .7rem;
+$border-radius-sm: .4rem;

@@ -1,9 +1,14 @@
-<h2>{{title}}</h2>
-<div class="card mb-3">
-  <div class="card-body">
-    <samp>{{marbles | json}}</samp>
+<section>
+  <div class="container">
+    <h2>{{demo.title}}</h2>
+    <div class="card mb-3">
+      <div class="card-body">
+        <samp>{{demo.result | json}}</samp>
+      </div>
+    </div>
+    <div class="stage-inner">
+      <app-marble *ngFor="let marble of demo.result" [colorNum]="marble">{{marble}}</app-marble>
+    </div>
   </div>
-</div>
-<div class="stage-inner">
-  <app-marble *ngFor="let marble of marbles" [colorNum]="marble">{{marble}}</app-marble>
-</div>
+  <hr>
+</section>

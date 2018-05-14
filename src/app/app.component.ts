@@ -19,27 +19,15 @@ export class AppComponent implements OnInit {
   // count to 20, update every 1 second
   marblesSource$: Observable<number> = interval(1000).pipe(take(21));
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   play(): void {
     this.isPlaying = true;
-    this.marbleDemos.forEach(demo => this.create(demo));
+    this.marbleDemos.forEach(demo => demo.start(this.marblesSource$));
   }
 
   stop(): void {
-    this.marbleDemos.forEach(demo => {
-      console.log(demo);
-      // this doesn't work
-      // demo.observable.unsubscribe();
-      demo.result = [];
-    });
+    this.marbleDemos.forEach(demo => demo.reset());
     this.isPlaying = false;
-  }
-
-  create(demo: MarbleDemo) {
-    demo.observable = this.marblesSource$
-      .pipe(...demo.transformations)
-      .forEach(num => demo.result.push(num));
   }
 }

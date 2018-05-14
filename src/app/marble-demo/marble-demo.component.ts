@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { MarbleDemo } from '../marble-demo.model';
 
 @Component({
-  selector: 'app-stage',
-  templateUrl: './stage.component.html',
-  styleUrls: ['./stage.component.css']
+  selector: 'app-marble-demo',
+  templateUrl: './marble-demo.component.html',
+  styleUrls: ['./marble-demo.component.css']
 })
-export class StageComponent implements OnInit {
+export class MarbleDemoComponent implements OnInit {
   @Input() demo: MarbleDemo;
 
   constructor() { }

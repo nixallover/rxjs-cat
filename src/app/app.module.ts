@@ -3,13 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { MarbleComponent } from './marble/marble.component';
-import { StageComponent } from './stage/stage.component';
+import { MarbleDemoComponent } from './marble-demo/marble-demo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MarbleComponent,
-    StageComponent
+    MarbleDemoComponent
   ],
   imports: [
     BrowserModule

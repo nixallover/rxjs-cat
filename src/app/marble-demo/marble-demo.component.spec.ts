@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StageComponent } from './stage.component';
+import { MarbleDemoComponent } from './marble-demo.component';
 
-describe('StageComponent', () => {
-  let component: StageComponent;
-  let fixture: ComponentFixture<StageComponent>;
+describe('MarbleDemoComponent', () => {
+  let component: MarbleDemoComponent;
+  let fixture: ComponentFixture<MarbleDemoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StageComponent ]
+      declarations: [ MarbleDemoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StageComponent);
+    fixture = TestBed.createComponent(MarbleDemoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

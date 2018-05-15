@@ -1,16 +1,29 @@
 <section class="my-4">
   <div class="container">
-    <h1>RXJS operators in action</h1>
-    <button *ngIf="!isPlaying" (click)="play()" class="btn btn-primary">Play</button>
-    <button *ngIf="isPlaying" (click)="stop()" class="btn btn-primary">Stop</button>
+    <h1>RXJS Pop</h1>
+
+    <form class="form-inline">
+
+      <div class="form-group my-3 mr-3">
+        <label for="operator">Operator to demo</label>
+        <select class="form-control ml-3" (change)="setActiveDemo($event.target.value)">
+          <option *ngFor="let demo of marbleDemos; let i = index" [value]="i">{{demo.title}}</option>
+        </select>
+      </div>
+
+      <div class="my-3">
+        <button *ngIf="!isPlaying" (click)="play()" class="btn btn-primary">Play</button>
+        <button *ngIf="isPlaying" (click)="stop()" class="btn btn-primary">Stop</button>
+      </div>
+    </form>
+
   </div>
   <hr>
 </section>
 
-<app-marble-demo *ngFor="let demo of marbleDemos" [demo]="demo"></app-marble-demo>
+<app-marble-demo [demo]="plainDemo"></app-marble-demo>
+<app-marble-demo *ngIf="activeDemo" [demo]="activeDemo"></app-marble-demo>
 
 <footer>
-  <div class="container mb-5">
-    Demo of some RXJS operators in action
-  </div>
+  <div class="container mb-5"></div>
 </footer>

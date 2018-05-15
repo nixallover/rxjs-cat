@@ -1,6 +1,10 @@
 {
-  "name": "rxjs-cat",
+  "name": "rxjs-pop",
   "version": "0.0.0",
+  "author": {
+    "name": "Nicole Oliver",
+    "email": "nicole@nixallover.com"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

@@ -3,6 +3,7 @@ import { Observable, Subscription } from 'rxjs';
 export class MarbleDemo {
   constructor(
     public title: string,
+    public description: string,
     public transformations: any[]
   ) {}
 

@@ -1,4 +1,6 @@
-# RxjsCat
+# RXJS Pop
+
+## A toy to show RXJS in action
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
 

@@ -1,7 +1,7 @@
 import { Observable, fromEvent, Subject, interval, timer } from 'rxjs';
 import { take, tap, filter, map, skip, skipUntil, skipWhile, sample, first, takeWhile, throttle, throttleTime } from 'rxjs/operators';
 
-import { MarbleDemo } from './marble-demo.model';
+import { MarbleDemo } from '../models/marble-demo.model';
 
 export const marbleDemoList: MarbleDemo[] = [
   new MarbleDemo(

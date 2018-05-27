@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { MarbleDemo } from '../marble-demo.model';
+import { MarbleDemo } from '../models/marble-demo.model';
 
 @Component({
   selector: 'app-marble-demo',

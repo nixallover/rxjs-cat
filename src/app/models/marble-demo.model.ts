@@ -11,14 +11,14 @@ export class MarbleDemo {
   result: number[] = [];
 
   start(source: Observable<number>): void {
-    // console.log('Start: ', this);
+    console.log('Start: ', this);
     this.subscription = source
       .pipe(...this.transformations)
       .subscribe((num: number) => this.result.push(num));
   }
 
   reset(): void {
-    // console.log('Reset: ', this);
+    console.log('Reset: ', this);
     this.subscription.unsubscribe();
     this.result = [];
   }

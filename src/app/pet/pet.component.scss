@@ -2,6 +2,7 @@
 
 .pet-container {
   background-color: $icy-grape;
+  //background-color: tomato;
   animation: float-right $time-floating 1 forwards linear;
   position: absolute;
   height: $height-pet-w-text;

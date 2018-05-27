@@ -1,4 +1,5 @@
 import { Observable, Subscription } from 'rxjs';
+import { Pet } from './pet.model';
 
 export class Demo {
   constructor(
@@ -10,7 +11,7 @@ export class Demo {
   subscription: Subscription;
   result: number[] = [];
 
-  start(source: Observable<number>, onComplete?: Function): void {
+  start(source: Observable<Pet>, onComplete?: Function): void {
     console.log('Start: ', this);
     this.subscription = source
       .pipe(...this.transformations)
@@ -23,7 +24,9 @@ export class Demo {
 
   reset(): void {
     console.log('Reset: ', this);
-    this.subscription.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
     this.result = [];
   }
 }

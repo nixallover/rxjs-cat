@@ -20,14 +20,18 @@ export const demoList = (): Demo[] => {
 
     new Demo(
       'first',
-      'First multiple of 5',
-      [first((x: number) => x !== 0 && x % 5 === 0)]
+      'First pet with friendliness 5 or less',
+      [first((x: Pet) => x.friendliness < 5)]
     ),
 
+    // NOTE: this modifies not only the value in the stream, but also the original source. Might want to explain this
     new Demo(
       'map',
-      'Map number to a string value, prefixed with #',
-      [map((x: number) => `#${x}`)]
+      'Append each pet name with an exclamation mark',
+      [map((x: Pet) => {
+        x.name = `${x.name}!`;
+        return x;
+      })]
     ),
 
     new Demo(
@@ -50,26 +54,26 @@ export const demoList = (): Demo[] => {
 
     new Demo(
       'skipWhile',
-      'Skip while value is less than 3',
-      [skipWhile(x => x < 3)]
+      'Skip while pet friendliness is less than 4',
+      [skipWhile((x: Pet) => x.friendliness > 4)]
     ),
 
     new Demo(
       'take',
-      'Take only the first 3 values',
+      'Take only the first 3 pets',
       [take(3)]
     ),
 
     new Demo(
       'takeWhile',
-      'Take while the value is less than 3, then complete',
-      [takeWhile(x => x < 3)]
+      'Take while the value is greater than 5, then complete',
+      [takeWhile((x: Pet) => x.friendliness < 5)]
     ),
 
     new Demo(
       'throttle',
       'Emit latest value every 4 seconds',
-      [throttle(x => interval(4 * 1000))]
+      [throttle((x: Pet) => interval(3 * 1000))]
     ),
 
     new Demo(

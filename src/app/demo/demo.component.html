@@ -1,16 +1,15 @@
-<!-- <section [class.overlay]="overlay"> -->
 <section>
   <div class="container">
-    <h2>{{demo.title}}</h2>
+    <h2>{{demo.title}} <small>/ {{demo.result.length}} results</small></h2>
     <p>{{demo.description}}</p>
     <div class="demo-inner">
       <app-pet *ngFor="let pet of demo.result" [pet]="pet"></app-pet>
     </div>
-    <div class="card mt-3">
+    <!-- <div class="card mt-3">
       <div class="card-body">
         <samp>{{demo.result | json}}</samp>
       </div>
-    </div>
+    </div> -->
   </div>
   <hr>
 </section>

@@ -21,11 +21,11 @@ export class AppComponent implements OnInit {
   plainDemo: Demo = new Demo('Original', '', []);
   activeDemo: Demo;
 
-  marbleSource$: Observable<any>;
+  source$: Observable<Pet>;
 
-  createMarbleSource(): void {
+  createSource(): Observable<Pet> {
     /** emits one pet from the list every second, ends after the last pet */
-    this.marbleSource$ = interval(1000).pipe(
+    return interval(1000).pipe(
       take(this.pets.length),
       map(x => this.pets[x])
     );
@@ -36,6 +36,7 @@ export class AppComponent implements OnInit {
   }
 
   setActiveDemo(index: number): void {
+    this.reset();
     this.activeDemo = this.demos[index];
   }
 
@@ -43,16 +44,17 @@ export class AppComponent implements OnInit {
     // FIXME: need to reset demo after the demo has completed
     // const onComplete = () => { setTimeout(this.reset(), 3 * 1000); };
     this.isPlaying = true;
-    this.createMarbleSource();
+    this.source$ = this.createSource();
 
-    this.plainDemo.start(this.marbleSource$);
-    this.activeDemo.start(this.marbleSource$);
+    this.plainDemo.start(this.source$);
+    this.activeDemo.start(this.source$);
   }
 
   reset(): void {
     this.plainDemo.reset();
-    this.activeDemo.reset();
-    this.marbleSource$ = undefined;
+    if (this.activeDemo) {
+      this.activeDemo.reset();
+    }
     this.isPlaying = false;
   }
 }

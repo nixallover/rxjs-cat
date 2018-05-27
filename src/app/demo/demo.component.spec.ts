@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MarbleDemoComponent } from './marble-demo.component';
+import { DemoComponent } from './demo.component';
 
-describe('MarbleDemoComponent', () => {
-  let component: MarbleDemoComponent;
-  let fixture: ComponentFixture<MarbleDemoComponent>;
+describe('DemoComponent', () => {
+  let component: DemoComponent;
+  let fixture: ComponentFixture<DemoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MarbleDemoComponent ]
+      declarations: [ DemoComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MarbleDemoComponent);
+    fixture = TestBed.createComponent(DemoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

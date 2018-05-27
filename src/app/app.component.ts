@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-
 import { Observable, fromEvent, Subject, interval, of, from } from 'rxjs';
 import { take, delay, map } from 'rxjs/operators';
 
-import { MarbleDemo } from './models/marble-demo.model';
-import { marbleDemoList } from './data/marble-demo-list';
+import { Demo } from './models/demo.model';
+import { demoList } from './data/demo-list';
+
+import { Pet } from './models/pet.model';
 import { petList } from './data/pet-list';
 
 @Component({
@@ -13,40 +14,42 @@ import { petList } from './data/pet-list';
 })
 export class AppComponent implements OnInit {
   isPlaying: boolean = false;
-  marbleDemos: MarbleDemo[] = marbleDemoList;
-  pets: any[] = petList;
+  demos: Demo[] = demoList();
+  pets: any[] = petList();
+  // demoPet: Pet = new Pet('Bailey', 'dog', 13);
 
-  plainDemo: MarbleDemo = new MarbleDemo('Original stream', '', []);
-  activeDemo: MarbleDemo;
+  plainDemo: Demo = new Demo('Original', '', []);
+  activeDemo: Demo;
 
   marbleSource$: Observable<any>;
 
   createMarbleSource(): void {
-
+    /** emits one pet from the list every second, ends after the last pet */
     this.marbleSource$ = interval(1000).pipe(
       take(this.pets.length),
       map(x => this.pets[x])
     );
   }
 
-
-
   ngOnInit(): void {
     this.setActiveDemo(0);
   }
 
   setActiveDemo(index: number): void {
-    this.activeDemo = this.marbleDemos[index];
+    this.activeDemo = this.demos[index];
   }
 
   play(): void {
+    // FIXME: need to reset demo after the demo has completed
+    // const onComplete = () => { setTimeout(this.reset(), 3 * 1000); };
     this.isPlaying = true;
     this.createMarbleSource();
+
     this.plainDemo.start(this.marbleSource$);
     this.activeDemo.start(this.marbleSource$);
   }
 
-  stop(): void {
+  reset(): void {
     this.plainDemo.reset();
     this.activeDemo.reset();
     this.marbleSource$ = undefined;

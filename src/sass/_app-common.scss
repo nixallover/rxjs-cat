@@ -1,0 +1,32 @@
+// color
+$icy-grape: #d0cbd2;
+$lilac: #856c8f;
+$electric-lilac: #804f94;
+$eggplant: #593e61;
+$dark: #292929;
+
+// size
+$height-pet: 100px;
+$height-pet-w-text: $height-pet + 65px;
+$height-demo: $height-pet-w-text + 30px;
+
+// time
+$time-floating: 10s;
+
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(359deg);
+  }
+}
+
+@keyframes float-right {
+  from {
+      right: 100%;
+  }
+  to {
+      right: 0;
+  }
+}

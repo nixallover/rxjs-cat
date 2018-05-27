@@ -1,6 +1,6 @@
 import { Observable, Subscription } from 'rxjs';
 
-export class MarbleDemo {
+export class Demo {
   constructor(
     public title: string,
     public description: string,
@@ -10,11 +10,15 @@ export class MarbleDemo {
   subscription: Subscription;
   result: number[] = [];
 
-  start(source: Observable<number>): void {
+  start(source: Observable<number>, onComplete?: Function): void {
     console.log('Start: ', this);
     this.subscription = source
       .pipe(...this.transformations)
-      .subscribe((num: number) => this.result.push(num));
+      .subscribe(
+        (num: number) => this.result.push(num),
+        // err => {},
+        // () => onComplete()
+    );
   }
 
   reset(): void {

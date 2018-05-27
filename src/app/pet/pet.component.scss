@@ -1,0 +1,45 @@
+@import '../../sass/app-common';
+
+.pet-container {
+  background-color: $icy-grape;
+  animation: float-right $time-floating 1 forwards linear;
+  position: absolute;
+  height: $height-pet-w-text;
+  margin: 1rem;
+  width: $height-pet;
+
+  .pet-description {
+    display: block;
+    color: $dark;
+    //font-size: 100%;
+    padding: .35rem;
+    text-align: center;
+
+    div {
+      display: block;
+      margin-top: .2rem;
+
+      span {
+        background-color: $electric-lilac;
+        border-radius: 25%;
+        color: #fff;
+        padding: .2rem .5rem;
+        min-width: 27px;
+      }
+    }
+  }
+}
+
+.pet {
+  background-color: $lilac;
+  border-radius: 50%;
+  display: block;
+  height: $height-pet;
+  width: $height-pet;
+
+  &.cat {
+    background: no-repeat center/$height-pet url('../../assets/rxjs-cat.png');
+  }
+
+
+}

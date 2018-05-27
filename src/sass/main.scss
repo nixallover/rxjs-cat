@@ -1,5 +1,6 @@
 @import 'bootstrap-custom';
 
+// FIXME: choose only partials I'm using
 @import 'node_modules/bootstrap/scss/bootstrap';
 
 // bootstrap - required
@@ -13,8 +14,6 @@
 // @import "node_modules/bootstrap/scss/images";
 // @import "node_modules/bootstrap/scss/code";
 // @import "node_modules/bootstrap/scss/grid";
-
-@import 'animations';
 
 .bg-theme {
   background-color: $lilac;
@@ -45,13 +44,3 @@
     width: 0;
   }
 }
-
-// .cat {
-//   // border: dotted 1px darken($color-main-bg, 10);
-//   animation: float-right $time-floating 1 forwards linear;
-//   background: no-repeat center/$height-cat url('assets/rxjs-pop.png');
-//   display: block;
-//   height: $height-cat;
-//   position: absolute;
-//   width: $height-cat;
-// }

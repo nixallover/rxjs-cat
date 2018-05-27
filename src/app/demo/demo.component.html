@@ -1,14 +1,15 @@
-<section [class.overlay]="overlay">
+<!-- <section [class.overlay]="overlay"> -->
+<section>
   <div class="container">
     <h2>{{demo.title}}</h2>
     <p>{{demo.description}}</p>
-    <div class="card mb-3">
+    <div class="demo-inner">
+      <app-pet *ngFor="let pet of demo.result" [pet]="pet"></app-pet>
+    </div>
+    <div class="card mt-3">
       <div class="card-body">
         <samp>{{demo.result | json}}</samp>
       </div>
-    </div>
-    <div class="marble-demo-inner">
-      <app-marble *ngFor="let marble of demo.result" [colorNum]="marble">{{marble}}</app-marble>
     </div>
   </div>
   <hr>

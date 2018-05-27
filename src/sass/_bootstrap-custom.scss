@@ -1,7 +1,4 @@
-$icy-grape: #d0cbd2;
-$lilac: #856c8f;
-$electric-lilac: #804f94;
-$eggplant: #593e61;
+@import 'app-common';
 
 $theme-colors: (
   "primary": $electric-lilac,

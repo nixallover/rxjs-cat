@@ -1,0 +1,10 @@
+@import '../../sass/app-common';
+
+.demo-inner {
+  border-left: solid 8px $electric-lilac;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 2rem 0;
+  min-height: $height-demo;
+}

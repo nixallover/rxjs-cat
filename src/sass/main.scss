@@ -16,19 +16,34 @@
 
 @import 'animations';
 
-h1 {
+.bg-theme {
+  background-color: $lilac;
+}
+
+.navbar {
+  z-index: 1;
+}
+
+.navbar-brand {
   color: #fff;
 }
 
-.marble-demo-inner {
-  //border: dotted 1px #fff;
-  //background-color: rgba(255, 255, 255, .2);
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  padding: 1.6rem;
-  margin-bottom: 1.5rem;
-  min-height: 100px;
+.sub {
+  color: $icy-grape;
+}
+
+.main {
+  z-index: 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top: 90px solid $lilac;
+    border-left: 90px solid $icy-grape;
+    width: 0;
+  }
 }
 
 // .cat {

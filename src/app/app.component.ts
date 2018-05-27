@@ -13,11 +13,14 @@ import { marbleDemoList } from './marble-demo-list';
 export class AppComponent implements OnInit {
   isPlaying: boolean = false;
   marbleDemos: MarbleDemo[] = marbleDemoList;
-  plainDemo: MarbleDemo = new MarbleDemo('Plain', '', []);
+
+  plainDemo: MarbleDemo = new MarbleDemo('Original stream', '', []);
   activeDemo: MarbleDemo;
 
   // count to 20, update every 1 second
-  marblesSource$: Observable<number> = interval(1000).pipe(take(21));
+  getMarbleSource(): Observable<number> {
+    return interval(1000).pipe(take(21));
+  }
 
   ngOnInit(): void {
     this.setActiveDemo(0);
@@ -29,15 +32,13 @@ export class AppComponent implements OnInit {
 
   play(): void {
     this.isPlaying = true;
-    this.plainDemo.start(this.marblesSource$);
-    this.activeDemo.start(this.marblesSource$);
-    // this.marbleDemos.forEach(demo => demo.start(this.marblesSource$));
+    this.plainDemo.start(this.getMarbleSource());
+    this.activeDemo.start(this.getMarbleSource());
   }
 
   stop(): void {
     this.plainDemo.reset();
     this.activeDemo.reset();
-    // this.marbleDemos.forEach(demo => demo.reset());
     this.isPlaying = false;
   }
 }

@@ -21,7 +21,7 @@
   <div class="form-group mr-3">
     <label for="demo">Demo</label>
     <select name="demo" class="form-control ml-3" (change)="setActiveDemo($event.target.value)">
-      <option *ngFor="let demo of demos; let i = index" [value]="i">
+      <option *ngFor="let demo of activeOperator.demos; let i = index" [value]="i">
         {{demo.description}}
       </option>
     </select>
@@ -29,4 +29,5 @@
 
   <button *ngIf="!isPlaying" type="button" (click)="play.emit()" class="btn btn-primary">Play</button>
   <button *ngIf="isPlaying" type="button" (click)="stop.emit()" class="btn btn-primary">Stop</button>
+
 </form>

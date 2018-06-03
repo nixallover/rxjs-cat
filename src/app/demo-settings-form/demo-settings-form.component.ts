@@ -30,20 +30,41 @@ export class DemoSettingsFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.setActiveCategory(0);
-    this.setActiveDemo(0);
+    this.attachDemosToCategories();
+
+    // set defaults
+    this.setActiveCategory();
   }
 
-  setActiveCategory(index: number): void {
+  attachDemosToCategories(): void {
+    const buckets = {};
+
+    this.demos.forEach((demo: Demo) => {
+      if (!buckets[demo.operatorTitle]) {
+        buckets[demo.operatorTitle] = [];
+      }
+      buckets[demo.operatorTitle].push(demo);
+    });
+
+    this.operatorCategories.forEach((category: OperatorCategory) => {
+      category.operators.forEach((operator: Operator) => {
+        operator.demos = buckets[operator.title];
+      });
+    });
+  }
+
+  setActiveCategory(index: number = 0): void {
     this.activeCategory = this.operatorCategories[index];
+    this.setActiveOperator();
   }
 
-  setActiveOperator(index: number): void {
+  setActiveOperator(index: number = 0): void {
     this.activeOperator = this.activeCategory.operators[index];
+    this.setActiveDemo();
   }
 
-  setActiveDemo(index: number): void {
-    this.activeDemo = this.demos[index];
+  setActiveDemo(index: number = 0): void {
+    this.activeDemo = this.activeOperator.demos[index];
     this.demoChosen.emit(this.activeDemo);
   }
 

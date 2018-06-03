@@ -3,23 +3,29 @@ import { Observable, fromEvent, Subject, interval, of, from } from 'rxjs';
 import { take, delay, map } from 'rxjs/operators';
 
 import { Demo } from './models/demo.model';
-import { demoList } from './data/demo-list';
+import { createDemoList } from './data/demo-list';
 
 import { Pet } from './models/pet.model';
-import { petList } from './data/pet-list';
+import { createPetList } from './data/pet-list';
+
+import { OperatorCategory } from './models/operator-category.model';
+import { Operator } from './models/operator.model';
+import { createOperatorCategoryList } from './data/operator-category-list';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  isPlaying: boolean = false;
-  demos: Demo[] = demoList();
-  pets: any[] = petList();
-  // demoPet: Pet = new Pet('Bailey', 'dog', 13);
 
-  plainDemo: Demo = new Demo('Original', '', []);
+  // data
+  pets: any[] = createPetList();
+
   activeDemo: Demo;
+  isPlaying: boolean = false;
+
+  plainDemo: Demo = new Demo('original', '', []);
 
   source$: Observable<Pet>;
 
@@ -31,17 +37,10 @@ export class AppComponent implements OnInit {
     );
   }
 
-  ngOnInit(): void {
-    this.setActiveDemo(0);
-  }
-
-  setActiveDemo(index: number): void {
-    this.reset();
-    this.activeDemo = this.demos[index];
-  }
+  ngOnInit(): void {}
 
   play(): void {
-    // FIXME: need to reset demo after the demo has completed
+    // FIXME: need to reset demo after it has completed
     // const onComplete = () => { setTimeout(this.reset(), 3 * 1000); };
     this.isPlaying = true;
     this.source$ = this.createSource();

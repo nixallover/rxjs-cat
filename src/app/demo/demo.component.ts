@@ -9,7 +9,6 @@ import { Demo } from '../models/demo.model';
 })
 export class DemoComponent implements OnInit {
   @Input() demo: Demo;
-  // @Input() overlay: boolean = false;
 
   constructor() { }
 

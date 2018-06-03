@@ -3,7 +3,7 @@ import { Pet } from './pet.model';
 
 export class Demo {
   constructor(
-    public title: string,
+    public operatorTitle: string,
     public description: string,
     public transformations: any[]
   ) {}

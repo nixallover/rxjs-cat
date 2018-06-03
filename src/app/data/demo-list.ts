@@ -4,7 +4,7 @@ import { take, tap, filter, map, skip, skipUntil, skipWhile, sample, first, take
 import { Demo } from '../models/demo.model';
 import { Pet } from '../models/pet.model';
 
-export const demoList = (): Demo[] => {
+export const createDemoList = (): Demo[] => {
   return [
     new Demo(
       'filter',
@@ -13,8 +13,8 @@ export const demoList = (): Demo[] => {
     ),
 
     new Demo(
-      'first (no predicate)',
-      'First value in sequence',
+      'first',
+      'No predicate - first value in sequence',
       [first()]
     ),
 

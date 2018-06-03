@@ -8,18 +8,12 @@
   <section class="my-4">
     <div class="container">
 
-      <form class="form-inline my-3">
-
-        <div class="form-group mr-3">
-          <label for="operator">Operator</label>
-          <select class="form-control ml-3" (change)="setActiveDemo($event.target.value)">
-            <option *ngFor="let demo of demos; let i = index" [value]="i">{{demo.title}}</option>
-          </select>
-        </div>
-
-        <button *ngIf="!isPlaying" (click)="play()" class="btn btn-primary">Play</button>
-        <button *ngIf="isPlaying" (click)="reset()" class="btn btn-primary">Stop</button>
-      </form>
+      <app-demo-settings-form
+        [isPlaying]="isPlaying"
+        (demoChosen)="activeDemo = $event"
+        (play)="play()"
+        (stop)="reset()">
+      </app-demo-settings-form>
 
     </div>
     <hr>
@@ -29,12 +23,6 @@
     <app-demo *ngIf="activeDemo" [demo]="activeDemo"></app-demo>
     <app-demo [demo]="plainDemo"></app-demo>
   </div>
-
-  <!-- <div class="card mt-3">
-    <div class="card-body">
-      <samp>{{pets | json}}</samp>
-    </div>
-  </div> -->
 </div>
 
 

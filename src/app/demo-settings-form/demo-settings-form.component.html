@@ -1,0 +1,32 @@
+<form class="form-inline my-3">
+
+  <div class="form-group mr-3">
+    <label for="category">Category</label>
+    <select name="category" class="form-control ml-3" (change)="setActiveCategory($event.target.value)">
+      <option *ngFor="let category of operatorCategories; let i = index" [value]="i">
+        {{category.title}}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group mr-3">
+    <label for="operator">Operator</label>
+    <select name="operator" class="form-control ml-3" (change)="setActiveOperator($event.target.value)">
+      <option *ngFor="let operator of activeCategory.operators; let i = index" [value]="i">
+        {{operator.title}}
+      </option>
+    </select>
+  </div>
+
+  <div class="form-group mr-3">
+    <label for="demo">Demo</label>
+    <select name="demo" class="form-control ml-3" (change)="setActiveDemo($event.target.value)">
+      <option *ngFor="let demo of demos; let i = index" [value]="i">
+        {{demo.description}}
+      </option>
+    </select>
+  </div>
+
+  <button *ngIf="!isPlaying" type="button" (click)="play.emit()" class="btn btn-primary">Play</button>
+  <button *ngIf="isPlaying" type="button" (click)="stop.emit()" class="btn btn-primary">Stop</button>
+</form>

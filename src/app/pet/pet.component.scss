@@ -1,8 +1,11 @@
 @import '../../sass/app-common';
 
 .pet-container {
+  // background-repeat: no-repeat;
+  // background-position: right;
+  // background-size: $height-pet-w-text;
+  // background-image: url('../../assets/animal-bg.png');
   background-color: $icy-grape;
-  //background-color: tomato;
   animation: float-right $time-floating 1 forwards linear;
   position: absolute;
   height: $height-pet-w-text;
@@ -12,7 +15,6 @@
   .pet-description {
     display: block;
     color: $dark;
-    //font-size: 100%;
     padding: .35rem;
     text-align: center;
 
@@ -32,14 +34,25 @@
 }
 
 .pet {
-  background-color: $lilac;
-  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: $height-pet;
+  // background-color: $lilac;
+  // border-radius: 50%;
   display: block;
   height: $height-pet;
   width: $height-pet;
 
   &.cat {
-    background: no-repeat center/$height-pet url('../../assets/rxjs-cat.png');
+    background-image: url('../../assets/cat.png');
+  }
+
+  &.dog {
+    background-image: url('../../assets/dog.png');
+  }
+
+  &.bird {
+    background-image: url('../../assets/bird.png');
   }
 
 

@@ -24,6 +24,12 @@ export const createOperatorCategoryList = (): OperatorCategory[] => {
       [
         new Operator('map', 'Transformation'),
       ]
+    ),
+    new OperatorCategory(
+      'Mathematical',
+      [
+        new Operator('count', 'Mathematical'),
+      ]
     )
   ];
 };

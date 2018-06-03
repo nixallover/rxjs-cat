@@ -3,7 +3,6 @@ import { Observable, fromEvent, Subject, interval, of, from } from 'rxjs';
 import { take, delay, map } from 'rxjs/operators';
 
 import { Demo } from './models/demo.model';
-import { createDemoList } from './data/demo-list';
 
 import { Pet } from './models/pet.model';
 import { createPetList } from './data/pet-list';

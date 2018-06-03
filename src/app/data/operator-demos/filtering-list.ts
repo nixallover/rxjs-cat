@@ -1,10 +1,14 @@
 import { Observable, fromEvent, Subject, interval, timer } from 'rxjs';
-import { take, tap, filter, map, skip, skipUntil, skipWhile, sample, first, takeWhile, throttle, throttleTime } from 'rxjs/operators';
+import {
+  take, tap, filter, skip, skipUntil, skipWhile, sample, first, takeWhile, throttle, throttleTime
+} from 'rxjs/operators';
 
-import { Demo } from '../models/demo.model';
-import { Pet } from '../models/pet.model';
+import { Demo } from '../../models/demo.model';
+import { Pet } from '../../models/pet.model';
 
-export const createDemoList = (): Demo[] => {
+/** FILTERING OPERATOR DEMOS */
+
+export const createFilteringOperatorDemoList = (): Demo[] => {
   return [
     new Demo(
       'filter',
@@ -13,8 +17,14 @@ export const createDemoList = (): Demo[] => {
     ),
 
     new Demo(
+      'filter',
+      'Filter out everything but dogs',
+      [filter((x: Pet) => x.type === 'dog')]
+    ),
+
+    new Demo(
       'first',
-      'No predicate - first value in sequence',
+      'First value in sequence (no predicate)',
       [first()]
     ),
 
@@ -22,16 +32,6 @@ export const createDemoList = (): Demo[] => {
       'first',
       'First pet with friendliness 5 or less',
       [first((x: Pet) => x.friendliness < 5)]
-    ),
-
-    // NOTE: this modifies not only the value in the stream, but also the original source. Might want to explain this
-    new Demo(
-      'map',
-      'Append each pet name with an exclamation mark',
-      [map((x: Pet) => {
-        x.name = `${x.name}!`;
-        return x;
-      })]
     ),
 
     new Demo(

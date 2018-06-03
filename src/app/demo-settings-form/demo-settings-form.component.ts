@@ -1,7 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Demo } from '../models/demo.model';
-import { createDemoList } from '../data/demo-list';
+import {
+  createFilteringOperatorDemoList,
+  createMathematicalOperatorDemoList,
+  createTransformationOperatorDemoList
+} from '../data/operator-demos';
 
 import { OperatorCategory } from '../models/operator-category.model';
 import { Operator } from '../models/operator.model';
@@ -19,7 +23,7 @@ export class DemoSettingsFormComponent implements OnInit {
   @Output() stop = new EventEmitter();
 
   // data
-  demos: Demo[] = createDemoList();
+  filterDemos: Demo[] = createFilteringOperatorDemoList();
   operatorCategories: OperatorCategory[] = createOperatorCategoryList();
 
   // state/config
@@ -39,7 +43,7 @@ export class DemoSettingsFormComponent implements OnInit {
   attachDemosToCategories(): void {
     const buckets = {};
 
-    this.demos.forEach((demo: Demo) => {
+    this.filterDemos.forEach((demo: Demo) => {
       if (!buckets[demo.operatorTitle]) {
         buckets[demo.operatorTitle] = [];
       }

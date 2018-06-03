@@ -23,8 +23,10 @@ export class DemoSettingsFormComponent implements OnInit {
   @Output() stop = new EventEmitter();
 
   // data
-  filterDemos: Demo[] = createFilteringOperatorDemoList();
   operatorCategories: OperatorCategory[] = createOperatorCategoryList();
+  private filterDemos: Demo[] = createFilteringOperatorDemoList();
+  private transformationDemos: Demo[] = createTransformationOperatorDemoList();
+  private mathematicalDemos: Demo[] = createMathematicalOperatorDemoList();
 
   // state/config
   activeCategory: OperatorCategory;
@@ -41,18 +43,30 @@ export class DemoSettingsFormComponent implements OnInit {
   }
 
   attachDemosToCategories(): void {
-    const buckets = {};
+    const groupDemosByOperator = (categoryDemos: Demo[]) => {
+      const buckets = {};
 
-    this.filterDemos.forEach((demo: Demo) => {
-      if (!buckets[demo.operatorTitle]) {
-        buckets[demo.operatorTitle] = [];
-      }
-      buckets[demo.operatorTitle].push(demo);
-    });
+      categoryDemos.forEach((demo: Demo) => {
+        if (!buckets[demo.operatorTitle]) {
+          buckets[demo.operatorTitle] = [];
+        }
+        buckets[demo.operatorTitle].push(demo);
+      });
 
+      return buckets;
+    };
+
+    // bucket the demos by operator title
+    const demos = {
+      Filtering: groupDemosByOperator(this.filterDemos),
+      Transformation: groupDemosByOperator(this.transformationDemos),
+      Mathematical: groupDemosByOperator(this.mathematicalDemos)
+    };
+
+    // assign demos to operator
     this.operatorCategories.forEach((category: OperatorCategory) => {
       category.operators.forEach((operator: Operator) => {
-        operator.demos = buckets[operator.title];
+        operator.demos = demos[category.title][operator.title];
       });
     });
   }
